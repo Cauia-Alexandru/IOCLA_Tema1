@@ -1,0 +1,54 @@
+                                Sistemul lui Biju
+
+1.Functia "touch"----------------------------------------------------------
+Pentru a crea fisierul, verific in primul rand daca exista fisiere in Director.
+Daca nu exista, creez un fisier si fac legaturile intre el si parent.Daca sunt
+fisier, caut prin ele daca nu exista deja vreun fisier cu numele care il am ca
+parametru. Daca il gasesc, afisez mesajul si returnez, altfel parcurg lista pana
+la sfrasit si inserez.Pentru functia "rmdir" am procedat la fel.
+
+
+2.Functia "ls"---------------------------------------------------------------
+Ca sa afisez mai intai numele directoarelor, verific daca exista. Apoi cat timp
+nu ajung la null, avansez in lista si printez numele directoarelor. Exact asa
+am printat si numele fisierelor.
+
+3.Functia "rm"----------------------------------------------------------------
+Daca sunt fisiere in director, mai declar 2 pointeri cu ajutorul carora sa execut
+eliminarea. Cu strcmp caut numele si daca il gasesc, il elimin si eliberez memoria.
+Pentru eliminare sunt 2 cazuri, cand file-ul gasit e primul sau nu. Daca nu il 
+gasesc afisez mesajul corespunzator.
+
+4.Functia "rmdir"-------------------------------------------------------------
+Caut directorul in lista si il izolez de intreaga lista ca sa pot sterge tot din
+el. Daca nu il gasesc afisez mesajul repectiv. Apoi verific daca are fisiere si
+le elimin printr-un while pana cand nu ajung la null, refacand legaturile. Apoi 
+elimin directoarele recursiv, pentru ca acele directoare la randul lor tot pot
+avea fisiere.
+
+5.Functia "cd"-------------------------------------------------------------------
+Verific cu strcmp(nume, "..") daca nu trebuie sa plec in directorul parinte. Daca nu,
+verific daca am directoare in lista, caut numele directorului unde trebuie sa mut
+targetul avansand prin lista. Daca nu il gasesc, afisez mesaj. Daca trebuie sa plec
+la directorul parinte, verific daca exista si mut tragetul.
+
+6.Functia "pwd"-------------------------------------------------------------------
+Fac un while pana ajung la home. Concatenez cu "strcat" "/" la un char* care e gol. Apoi la
+acel char* concatenez numele targetul-ui curent. Numele target-ului curent il stochez in 
+alt char* ca la randul lui sa-l concatenez la target->name urmator.
+
+7.Functia "stop"----------------------------------------------------------------
+Mut targetul in varful ierarhiei si sterg totul eliberand memoria cu metodele care 
+le-am mai aplicat.
+
+8.Functia "tree"------------------------------------------------------------------
+Verific daca directorul curent contine directoare. Declar un i care e level*4. Cat 
+timp i va fi mai mare ca zero voi printa spatii. Printez numele primului director si
+avansez recursiv in ierarhie, crescand levelul.
+
+9.Functia "mv"----------------------------------------------------------------------
+Parcurg directoarele si verific daca exista old name. Daca exista creez un pointer care
+sa pointeze la el si fac dirFound = 1 ca sa stiu ulterior daca sa mai caut prin fisiere.
+daca nu gasesc, afisez mesaj. Daca gasesc newname, afisez mesaj.
+Apoi ii schimb numele, elimin celula si o inserez la sfrasit.
+ 
